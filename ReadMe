@@ -1,0 +1,32 @@
+show password from container id when you loged in lenkins:
+
+docker exec 8d6a17dee1ce cat /var/jenkins_home/secrets/initialAdminPassword
+
+
+
+/////////////
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\user> docker pd
+docker: 'pd' is not a docker command.
+See 'docker --help'
+PS C:\Users\user> docker ps
+CONTAINER ID   IMAGE                       COMMAND                  CREATED       STATUS          PORTS                                              NAMES
+8d6a17dee1ce   jenkins/jenkins:lts-jdk17   "/usr/bin/tini -- /u…"   3 hours ago   Up 48 minutes   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   modest_bardeen
+PS C:\Users\user> ^C
+PS C:\Users\user> docker exec 8d6a17dee1ce cat /var/jenkins_home/secrets/initialAdminPassword
+7b853344e220445a85db84e2c9790f79
+PS C:\Users\user> ^C
+PS C:\Users\user> docker exec 8d6a17dee1ce cat /var/jenkins_home/secrets/initialAdminPassword
+Error response from daemon: container 8d6a17dee1cee3bdd8bacf2f65e5db9204cb257cd451ceb5c2686a7cf3be11c3 is not running
+PS C:\Users\user> docker run -p 50000:50000
+>> /var/jenkins_home/log.properties" -v `pwd`/data:/var/jenkins_home jenkins/jenkins:lts-jdk17^C
+PS C:\Users\user>docker ps
+CONTAINER ID   IMAGE                       COMMAND                  CREATED       STATUS         PORTS                                              NAMES
+370151bc5e2a   jenkins/jenkins:lts-jdk17   "/usr/bin/tini -- /u…"   5 hours ago   Up 5 minutes   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   blissful_chebyshev
+PS C:\Users\user> docker exec 8d6a17dee1ce cat /var/jenkins_home/secrets/initialAdminPassword^C
+PS C:\Users\user> ^C
+PS C:\Users\user> 

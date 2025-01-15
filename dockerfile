@@ -2,10 +2,10 @@
 FROM nginx:latest
 
 # Set the working directory (optional)
-WORKDIR /usr/share/nginx/index.html
+WORKDIR /usr/share/nginx/html
 
 # Copy application files into the container
-COPY . .
+COPY index.html /usr/share/nginx/html/index.html
 
 # Expose a port for the container
 EXPOSE 80
